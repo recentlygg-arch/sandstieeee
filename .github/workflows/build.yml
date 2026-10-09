@@ -12,7 +12,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Download raylib
-        run: git clone --depth 1 --branch 5.5 https://github.com/raysan5/raylib.git app/src/main/cpp/raylib
+        run: |
+          git clone --depth 1 --branch 5.5 https://github.com/raysan5/raylib.git app/src/main/cpp/raylib
+          rm -f app/src/main/cpp/raylib/src/external/dirent.h
 
       - uses: actions/setup-java@v4
         with:
